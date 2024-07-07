@@ -38,8 +38,11 @@ if [[ $GEYSER_TYPE == 2 ]]; then
     else
         wget -p https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot -O server/plugins/geyser.jar
         if [[ $CRACKING == 1 ]]; then
-            wget -p https://github.com/hapis1703/mcserver/raw/main/config.yml -O server/plugins/Geyser-Spigot/config.yml
-            echo -e "Success Installing Geyser Standalone with Cracking"
+            cd server/plugins
+            mkdir Geyser-Spigot
+            wget -p https://github.com/hapis1703/mcserver/raw/main/config.yml -O Geyser-Spigot/config.yml
+            echo -e "Success Installing Geyser with Cracking"
+            cd $MAIN_DIR
         fi
         echo -e "Success Installing Geyser Paper/Spigot"
     fi

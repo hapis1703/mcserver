@@ -109,7 +109,18 @@ echo "Type [7] Create Bungeecord Server(latest)"
 choiceForServer=1
 read choiceForServer
 
+echo ""
+echo "Do You want to install it cracked?"
+echo "Type [1] Yes"
+echo "Type [2] No"
+choiceForCrack=1
+read choiceForCrack
+
 install_server $choiceForServer
+
+cd THIS_DIR
+echo "online-mode=false" > server/server.properties
+echo -e "Success Cracked"
 
 # Backup install playit.gg in case if first one doesn't download
 echo "> Installing Playit.gg..."
