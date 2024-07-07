@@ -119,7 +119,7 @@ read choiceForCrack
 install_server $choiceForServer
 
 cd THIS_DIR
-echo "online-mode=false" > server/server.properties
+wget -p https://github.com/hapis1703/mcserver/raw/main/server.properties -O server/server.properties
 echo -e "Success Cracked"
 
 # Backup install playit.gg in case if first one doesn't download
