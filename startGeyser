@@ -1,0 +1,21 @@
+export MAIN_DIR=$PWD
+cd $MAIN_DIR
+
+if [[ -d $MAIN_DIR/geyser ]]; then
+    cd $MAIN_DIR/geyser
+    java -jar geyser.jar
+else
+    echo "Geyser not found"
+    echo -e "Do you want to install it? (Standalone)"
+    echo -e "Type [1] for Yes"
+    echo -e "Type [2] for No"
+    INSTALL=1
+    read INSTALL
+
+    if [[ $INSTALL == 1]]; then
+        ./installGeyser
+    else
+        exit
+    fi
+
+fi

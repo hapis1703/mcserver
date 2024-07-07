@@ -1,0 +1,32 @@
+export MAIN_DIR=$PWD
+echo -e "-- Geyser Installer Tool --"
+echo -e "--     Version 1.0       --"
+echo -e ""
+echo -e "Type [1] to Install standalone"
+echo -e "Type [2] to Install Paper/Spigot"
+GEYSER_TYPE=1
+read GEYSER_TYPE
+if [[ $GEYSER_TYPE == 1 ]]; then
+    echo -e "Installing Geyser Standalone"
+    mkdir geyser
+    cd geyser
+    wget -p https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/standalone -O geyser.jar
+    cd $MAIN_DIR
+    echo -e "Success Installing Geyser Standalone"
+fi
+
+if [[ $GEYSER_TYPE == 2 ]]; then
+    echo -e "Installing Geyser Paper/Spigot"
+    cd $MAIN_DIR
+    if [[ ! -d $MAIN_DIR/server ]]; then
+        echo -e "Seems like there's no server in here"
+        ./install
+    elif [[ ! -d $MAIN_DIR/server/plugins ]]; then
+        echo -e "This is not Paper/Spigot Server"
+        exit
+    else
+        wget -p https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot -O server/plugins/geyser.jar
+        echo -e "Success Installing Geyser Paper/Spigot"
+    fi
+fi
+
