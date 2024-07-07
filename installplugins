@@ -10,20 +10,19 @@ read PLUGIN_NAME
 
 echo -e "Installing ${PLUGIN_NAME} Plugin"
 
-if [[ -z "$DOWNLOAD_LINK"]]; then
+if [[ -z "$DOWNLOAD_LINK" ]]; then
     echo -e "No Download Link Provided"
     ./installplugins
 fi
 
-if [[ -z "$PLUGIN_NAME"]]; then
+if [[ -z "$PLUGIN_NAME" ]]; then
     echo -e "No Plugin Name Provided"
     ./installplugins
 fi
 
-if [ -n "$DOWNLOAD_LINK"] && [ -n "$PLUGIN_NAME"]; then
+if [ -n "$DOWNLOAD_LINK" ] && [ -n "$PLUGIN_NAME" ]; then
     echo -e "Installing Plugin"
     echo -e "Name: " $PLUGIN_NAME
-    wget -p $DOWNLOAD_LINK -O server/plugins/${PLUGIN_NAME}
+    wget -p $DOWNLOAD_LINK -O server/plugins/${PLUGIN_NAME}.jar
+    echo "Success Installing Plugin"
 fi
-echo "Sucess Installing Plugin"
-
